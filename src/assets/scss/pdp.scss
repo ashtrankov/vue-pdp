@@ -119,9 +119,22 @@
     border-bottom: 3px solid #dd6b44;
     color: #FFF;
     min-width: 140px;
+
+    strong {
+      font-size: 22px;
+      position: relative;
+      top: 3px;
+      margin-left: 7px;
+      line-height: 12px;
+    }
   }
 
-  .recommendations .pod {
-    max-width: calc(25% - 10px);
+  .recommendations {
+    display: flex;
+    justify-content: space-between;
+    
+    .pod {
+      max-width: calc(25% - 10px);
+    }
   }
 }

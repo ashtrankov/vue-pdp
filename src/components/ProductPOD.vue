@@ -13,7 +13,7 @@
     <div class="pod__price">
       {{ product.price }}
     </div>
-    <AddToCard />
+    <AddToCard :product="product" />
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <button class="add-to-cart" 
     @click="addToCard(product)">
-    Add to Cart &plus;
+    Add to Cart <strong>&#43;</strong>
   </button>
 </template>
 

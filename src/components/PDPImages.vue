@@ -30,6 +30,7 @@ export default {
   methods: {
     switchImage: function (index) {
       this.mainImage = this.images[index].main;
+      return;
     }
   }
 

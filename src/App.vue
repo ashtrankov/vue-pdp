@@ -4,10 +4,7 @@
       <router-link to="/">
         Home
       </router-link> |
-      <router-link to="/about">
-        About
-      </router-link> |
-      <router-link to="/pdp/123">
+      <router-link to="/pdp/P123">
         Product
       </router-link>
     </div>
@@ -39,3 +36,20 @@
   }
 }
 </style>
+
+<script>
+window.Cart = {
+  items: []
+}
+export default {
+  created() {
+    this.$root.$on('update-cart', function (item) {
+      Cart.items[item.id] = item.quantity || 1;
+      console.log(`"${item.name}" Added to Cart`, Cart)
+    })
+  },
+}
+</script>
+
+
+

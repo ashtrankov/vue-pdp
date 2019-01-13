@@ -5,11 +5,14 @@
 
       <div class="pdp__details">
         <form v-on:submit.prevent>
-          <a href="#" class="return-link">&lt; Back to <span>Women’s Clothing</span></a>
+          <router-link to="/" class="return-link">
+              &lt; Back to <span>Women’s Clothing</span>
+          </router-link>
+
           <h1>{{product.name}}</h1>
 
-          <a class="reviews">
-            <div class="reviews__count">12 reviews</div>
+          <a class="reviews" v-if="this.reviewData">
+            <div class="reviews__count">{{reviewData.TotalReviewCount}} reviews</div>
             <span v-bind:style="`width: ${reviewPercentage}%`"></span>
           </a>
 
@@ -35,10 +38,11 @@
         </form>
       </div>
     </div>
+    <div class="separator">
+      <span>Related Products</span>
+    </div>
     <div class="recommendations">
-      <div class="separator">
-        <span>Related Products</span>
-      </div>
+
       <ProductPOD v-for="(pod, index) in recommendations"
         :key="`recommendation${index}`" 
         :product="pod"
@@ -68,8 +72,9 @@ export default {
     ProductPOD,
   },
   created () {
+    console.log(this.$route.params.id)
     this.product = {
-      id: '',
+      id: this.$route.params.id,
       name: 'Sofi Blouse',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis nibh volutpat, gravida nunc sed, laoreet lorem. Duis rutrum felis lectus, et eleifend eros mattis ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec quis placerat arcu. Etiam sed mauris ligula. Praesent scelerisque tempus magna, at dapibus lorem aliquet eget. Ut ut arcu ut libero tincidunt lobortis vel et nibh. Vivamus at faucibus eros. Suspendisse ullamcorper pretium arcu quis gravida. In auctor turpis sed fermentum vestibulum. Nunc elit nisl, fermentum vel ultrices ac, posuere sed augue. Sed luctus in lorem eget consequat. Aenean pharetra maximus odio eu facilisis. Nam at porttitor urna, at suscipit mauris.',
       quantity: 1,
@@ -79,16 +84,16 @@ export default {
           main: require('../assets/images/main.jpg'),
         },
         {
-          thumbnail: require('../assets/images/main.jpg'),
-          main: require('../assets/images/main.jpg'),
+          thumbnail: require('../assets/images/main2.jpg'),
+          main: require('../assets/images/main2.jpg'),
         },
         {
-          thumbnail: require('../assets/images/main.jpg'),
-          main: require('../assets/images/main.jpg'),
+          thumbnail: require('../assets/images/main3.jpg'),
+          main: require('../assets/images/main3.jpg'),
         },
         {
-          thumbnail: require('../assets/images/main.jpg'),
-          main: require('../assets/images/main.jpg'),
+          thumbnail: require('../assets/images/main4.jpg'),
+          main: require('../assets/images/main4.jpg'),
         }
       ],
     };
@@ -113,7 +118,7 @@ export default {
       BVService.getReviews().then(result => {
         let reviewStats = result.data.Results[0].ReviewStatistics;
         this.reviewPercentage = Math.floor((reviewStats.AverageOverallRating / reviewStats.OverallRatingRange) * 100);
-
+        this.reviewData = reviewStats;
       })
     },
 
@@ -121,14 +126,21 @@ export default {
      * Generates random recommendations
      */
     getRecommendations() {
-      return new Array(4).fill({
-        id: Math.floor(Math.random(200) * 10000),
-        name: 'asd',
-        image: require('@/assets/images/main.jpg'),
-        price: '$25.20',
-      });
-      console.log(process.env.VUE_APP_BV_URL);
+      const images = [
+        require(`@/assets/images/main.jpg`),
+        require(`@/assets/images/main1.jpg`),
+        require(`@/assets/images/main2.jpg`),
+        require(`@/assets/images/main3.jpg`)
+      ]
 
+      return new Array(4).fill(true).map((item, index) => {
+        return {
+          id: `P${Math.floor(Math.random(200) * 10000)}`,
+          name: `Product Name ${index + 1}`,
+          image: images[index],
+          price: '$25.20',
+        }
+      });
     },
   },
 
