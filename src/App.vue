@@ -38,17 +38,31 @@
 </style>
 
 <script>
-window.Cart = {
-  items: []
-}
-export default {
-  created() {
-    this.$root.$on('update-cart', function (item) {
-      Cart.items[item.id] = item.quantity || 1;
-      console.log(`"${item.name}" Added to Cart`, Cart)
-    })
-  },
-}
+  import axios from 'axios';
+
+  window.Cart = {
+    items: []
+  }
+  export default {
+    created() {
+      this.$root.$on('update-cart', function (item) {
+        const quantity = item.quantity || 1;
+        
+        axios.post('https://jsonplaceholder.typicode.com/posts', {
+          product: item.id,
+          quantity
+        })
+        .then(function (response) {
+          Cart.items[item.id] = quantity;
+          console.log(`"${item.name}" Added to Cart`, Cart)
+        })
+        .catch(function (error) {
+          alert('Error adding product to cart');
+        });
+        
+      })
+    },
+  }
 </script>
 
 
