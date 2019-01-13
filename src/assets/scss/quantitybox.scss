@@ -1,0 +1,33 @@
+.quantityBox {
+  height: 47px;
+  line-height: 47px;
+  background: #fd926d;
+  border-bottom: 3px solid #dd6b44;
+  color: #FFF;
+  display: flex;
+  max-width: 140px;
+
+  &__button {
+    cursor: pointer;
+    width: 40px;
+  }
+
+  input,
+  &__button {
+    border: none;
+    background: transparent;
+    color: #FFF;
+    text-align: center;
+  }
+
+  input {
+    flex: 1;
+    min-width: 20px;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}

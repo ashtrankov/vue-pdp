@@ -1,0 +1,29 @@
+.pod {
+  display: inline-block;
+  margin-right: 10px;
+  background: #f7f7f7;
+  text-align: center;
+  color: #373737;
+
+  &__name {
+    &, &:visited {
+      color: #373737;
+      text-decoration: none;
+      font-size: 12px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+  }
+
+  &__price {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    margin: 0 0 10px 0;
+  }
+  img {
+    width: 100%;
+  }
+}
