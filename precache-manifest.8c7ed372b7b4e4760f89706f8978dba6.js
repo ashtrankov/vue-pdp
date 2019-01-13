@@ -1,15 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "b3ed6554c6a8efc567f7",
-    "url": "/vue-pdp/js/about.1b2e55ae.js"
-  },
-  {
-    "revision": "f667f660336f8dcabd25",
+    "revision": "e5d05ba92024564758c5",
     "url": "/vue-pdp/css/app.e3ede127.css"
   },
   {
-    "revision": "f667f660336f8dcabd25",
-    "url": "/vue-pdp/js/app.bca1f492.js"
+    "revision": "e5d05ba92024564758c5",
+    "url": "/vue-pdp/js/app.4ed60b13.js"
   },
   {
     "revision": "08672c9c8b921f69f6ec",
@@ -40,7 +36,7 @@ self.__precacheManifest = [
     "url": "/vue-pdp/img/main.d115b5c7.jpg"
   },
   {
-    "revision": "86dad95cecd12e7b2e40d32112407771",
+    "revision": "f6f87a10236dad6e49dbc8020bff909d",
     "url": "/vue-pdp/index.html"
   },
   {

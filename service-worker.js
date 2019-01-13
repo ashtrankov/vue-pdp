@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/vue-pdp/precache-manifest.0769a506eb8c89946a3b7b6f57a4511f.js"
+  "/vue-pdp/precache-manifest.8c7ed372b7b4e4760f89706f8978dba6.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "pdp"});
